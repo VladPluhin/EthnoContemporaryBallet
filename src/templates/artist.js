@@ -20,7 +20,7 @@ export default ({data}) => {
                           {artistData.position &&  <h5 className="section-artist__position"> {artistData.position}</h5>}
                           {artistData.personDescription &&  <RichText data={artistData.personDescription} colorText={ '#fff'}/>}
                     </article>
-                      <ul  className="section-artist__pagination ">
+                      <ul  className="pagination ">
                         <li>
                           {prevPage.slug &&  <Link to={ `/team/${prevPage.slug}`}  className="link prev ">{prevPage.namePersone}</Link>}
                         </li>
@@ -38,8 +38,8 @@ export default ({data}) => {
 export const query = graphql`
 query MyQuery( 
   $slug:String
-  $previousPostSlug: String
-  $nextPostSlug: String
+  $previousArtistSlug: String
+  $nextArtistSlug: String
 ) {
       allContentfulPersonCard(filter: {slug: {eq: $slug}}) {
         nodes {
@@ -60,14 +60,14 @@ query MyQuery(
         }
       }
 
-      previous: allContentfulPersonCard(filter: {slug: {eq:$previousPostSlug}}) {
+      previous: allContentfulPersonCard(filter: {slug: {eq:$previousArtistSlug}}) {
         nodes {
           slug
           namePersone
         }
       }
 
-      next: allContentfulPersonCard(filter: {slug: { eq: $nextPostSlug }}) {
+      next: allContentfulPersonCard(filter: {slug: { eq: $nextArtistSlug }}) {
         nodes {
           slug
           namePersone

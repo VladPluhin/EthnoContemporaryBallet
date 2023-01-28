@@ -10,10 +10,17 @@
 
 .team-row {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     .col {
-        max-width: 32%;
         padding: 0 10px;
+        max-width: 100%;
+        width: 100%;
         display: flex;
+        @media only screen and (min-width:767px) {
+            max-width: 50%;
+        }
+        @media only screen and (min-width: 1024px) {
+            max-width: 32%;
+        }
     }
 }

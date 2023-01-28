@@ -90,7 +90,7 @@ export const query = graphql`
       }
       nameBlock
       newEvent
-      newEvents
+      newEventsText
       slug
       title
       nameEvent
@@ -111,7 +111,7 @@ export const query = graphql`
       }
       nameBlock
       newEvent
-      newEvents
+      newEventsText
       slug
       title
       nameEvent

@@ -8,7 +8,7 @@ import SectionMain from '../components/sectionMain/sectionMain.js'
 const ProductsPage = ({data}) => {
   // const dataMainSection = {...data.contentfulProductsPage.sectionMain}
   // const dataProductsSection = {...data.contentfulProductsPage.sectionProducts}
-  // const dataAllContentfulProduct = [...data.allContentfulProduct.nodes] 
+
   return(
     <Layout>
       {/* <SectionMain data={dataMainSection} key={dataMainSection.id}/>

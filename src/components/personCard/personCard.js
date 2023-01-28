@@ -1,8 +1,9 @@
 import { Link } from "gatsby";
 import * as React from "react"
 import './personCard.scss';
+
+
 function PersonCard({personData}) {
-    console.log(personData)
     return(
         <div className="person-card"  style={{backgroundColor: personData.bgColorCard ?  personData.bgColorCard : '#00087a' }}>
             <Link to={`/team/${personData?.slug}`} className="link-image">

@@ -5,10 +5,10 @@ import './eventCard.scss';
 
 function EventCard({showData}) {
     return(
-        <Link to={`/team/${showData.slug}`} className="event-card">
+        <Link to={showData.newEvent? `/new-events/${showData.slug}` : `/old-events/${showData.slug}`} className="event-card">
             {showData.image && 
                 <div className='event-card__img'>
-                    {showData.newEvent && <span className="newEvent">{showData.newEvents}</span>}
+                    {showData.newEvent && <span className="newEvent">{ showData.newEventsText}</span>}
                     <img src={showData.image.url} alt={showData.image.description}/>  
                 </div>
             }
@@ -17,14 +17,13 @@ function EventCard({showData}) {
                 {showData.previewText && <div className="event-card__text">
                     <p>{showData.previewText}</p>
                 </div>}
-                {showData.slug&& 
+                {showData.textBtn && 
                     <div className="btn-wrap">
                         <span  className='link'>{showData.textBtn}</span>
                     </div>
                 }
             </div>
         </Link>
-       
     )
 }
 
