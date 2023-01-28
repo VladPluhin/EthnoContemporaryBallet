@@ -3,7 +3,6 @@ import {  graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import SectionMain from '../components/sectionMain/sectionMain.js'
-import SectionProducts from '../components/sectionProducts/sectionProducts.js'
 
 
 const ProductsPage = ({data}) => {
@@ -13,7 +12,7 @@ const ProductsPage = ({data}) => {
   return(
     <Layout>
       {/* <SectionMain data={dataMainSection} key={dataMainSection.id}/>
-      <SectionProducts data={dataProductsSection} key={dataProductsSection.id} products={dataAllContentfulProduct}/>  */}
+    */}
     </Layout>
   )
 }

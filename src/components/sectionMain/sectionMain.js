@@ -16,7 +16,7 @@ return (
        slidesPerView={1}
        loop='true'
        autoplay={{
-        delay: 3500,
+        delay: 5000,
       }}
       pagination={{
         clickable: true

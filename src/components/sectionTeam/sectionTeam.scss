@@ -1,17 +1,12 @@
 .section-team {
-    padding: 75px 0;
     text-align: center;
-    .title {
-        margin-bottom: 24px;
-        font-size: 50px;
-        font-weight: 600;
-    }
-
+   
     .text {
         font-size: 24xp;
+        max-width: 1000px;
+        margin:  0 auto 80px;
     }
 }
-
 
 .team-row {
     display: flex;

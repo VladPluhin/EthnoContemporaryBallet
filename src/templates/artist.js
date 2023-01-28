@@ -2,27 +2,32 @@ import * as React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import {  graphql, Link } from "gatsby"
+import RichText from '../components/richText/richText'
 
-
-export default () => {
-  // const nextPage= {...data.next.nodes[0]}
-  // const prevPage= {...data.previous.nodes[0]}
-  // const prodData= {...data.allContentfulPersonCard.nodes[0]}
+export default ({data}) => {
+  const nextPage= {...data.next.nodes[0]}
+  const prevPage= {...data.previous.nodes[0]}
+  const artistData= {...data.allContentfulPersonCard.nodes[0]}
      return (
        <Layout>
-          <section className="section-article">
+          <section className="section-artist">
                <div className="container">
                       <article>
-                        dadadadadadasdadadad aq qq ddqd   wfwefwffw  ew 
+                        {artistData.personImage.url && <div className="section-artist__image">
+                                <img src={artistData.personImage.url} alt={artistData.personImage.description}/>
+                          </div>}
+                          {artistData.namePersone && <h2 className="section-artist__title ">{artistData.namePersone}</h2>}
+                          {artistData.position &&  <h5 className="section-artist__position"> {artistData.position}</h5>}
+                          {artistData.personDescription &&  <RichText data={artistData.personDescription} colorText={ '#fff'}/>}
                     </article>
-                      {/* <ul  className="section-article__pagination ">
+                      <ul  className="section-artist__pagination ">
                         <li>
-                          {prevPage.slug &&  <Link to={ `/products/${prevPage.slug}`}  className="link prev ">Previos Product</Link>}
+                          {prevPage.slug &&  <Link to={ `/team/${prevPage.slug}`}  className="link prev ">{prevPage.namePersone}</Link>}
                         </li>
                         <li>
-                          {nextPage.slug && <Link to={ `/products/${nextPage.slug}`}  className="link  next"> Next Product</Link>}
+                          {nextPage.slug && <Link to={ `/team/${nextPage.slug}`}  className="link  next">{nextPage.namePersone}</Link>}
                         </li>
-                      </ul> */}
+                      </ul>
                </div>
           </section>
        </Layout>
@@ -36,8 +41,6 @@ query MyQuery(
   $previousPostSlug: String
   $nextPostSlug: String
 ) {
-     
-
       allContentfulPersonCard(filter: {slug: {eq: $slug}}) {
         nodes {
           bgColorAnimation
@@ -51,6 +54,9 @@ query MyQuery(
           slug
           position
           id
+          personDescription {
+            raw
+          }
         }
       }
 

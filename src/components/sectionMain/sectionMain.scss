@@ -1,4 +1,5 @@
 .sectionMain {
+    padding: 0;
     .title {
         font-size: 70px;
         margin-bottom: 40px;
@@ -25,16 +26,16 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-   
 }
 
 .swiper-slide  {
-    min-height: 66vh;
+    height: calc(100vh - 60px);
+    min-height: 700px;
     background-size: cover;
     background-position: left bottom;
     background-repeat: no-repeat;
     position: relative;
-    padding: 150px 0;
+    padding: 68px 0 39px;
     .bg-image {
         position: absolute;
         top: 0;
@@ -60,44 +61,29 @@
 }
 
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets {
-    bottom: 40px;
+    bottom: 60px;
    
     .swiper-pagination-bullet {
-        width: 25px;
-        height:25px;
+        width: 18px;
+        transition:  background-color .3s ease;
+        height: 18px;
         border-radius: 50%;
         border: 1px solid #fff;
-        background: transparent;
+        background-color: transparent;
         margin: 0;
         position: relative;
+        opacity: 1;
         overflow: hidden;
        
         +  .swiper-pagination-bullet { 
             margin-left: 15px;
         }
       
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100%;
-            left: 0;
-            background-color: #fff;
-            transform: scale(0);
-            height: 100%;
-            opacity: 0;
-            visibility: hidden;
-            transition: all .3s ease;
-            border-radius: 50%;
-        }
+       
 
         &.swiper-pagination-bullet-active {
-       
-            &:after {
-                opacity: 1;
-                visibility: visible;
-                transform: scale(1);
-            }
+            background-color: #fff;
+         
         }
     }
 }

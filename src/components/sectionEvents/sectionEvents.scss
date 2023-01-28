@@ -1,15 +1,9 @@
 .section-events {
-    padding : 75px 0;
     text-align: center;
-
-    .title {
-        font-size: 40px;
-        text-transform: capitalize;
-        margin-bottom: 20px;
-    }
     .events-row {
         display: flex;
         flex-wrap: wrap;
+        
         .col {
             max-width: 32%;
             width: 100%;

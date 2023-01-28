@@ -1,18 +1,84 @@
 .event-card {
+    transition: box-shadow .3s ease;
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    border: 1px solid #000;
+    border-radius: 8px;
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    border: 1px solid #382e2e29;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px #382e2e29;
+
+    &:hover {
+        box-shadow: 0px 0px 15px #382e2e94;
+        .link {
+            font-size: 20px;
+            text-transform: uppercase;
+            &:before {
+                transform: scaleX(1);
+                opacity: 1;
+                visibility: visible;
+            }
+            &:after {
+                transform: translateX(4px); 
+            }
+        }
+    }
     &__img {
         display: flex;
         height: 350px;
         border-radius: 8px;
         overflow: hidden;
-        >a {
-            display: flex;
-            width: 100%;
+        position: relative;
+
+        &:hover {
+            .newEvent {
+                box-shadow: 3px 3px 27px #61b8eb;
+            }
         }
         img {
             width: 100%;
             object-fit: cover;
             object-position: 0 50%;
         }
+    }
+
+    .newEvent {
+        transition: box-shadow .3s ease ;
+        display: inline-block;
+        padding: 12px;
+        position: absolute;
+        background-color: #202f4b;
+        top: 7px;
+        color: #fff;
+        border-radius: 4px;
+        z-index: 7;
+        right: 7px;
+        font-weight: 500;
+        box-shadow: 0px 0px 8px #2573a1;;
+    }
+
+    &__title {
+        font-size: 28px;
+    }
+    &__body {
+        margin-top: -15px;
+        background-color: #0b00680d;
+        padding: 40px 15px;
+    }
+
+    &__text {
+        font-size: 20px;
+    }
+
+    .link {
+        font-size: 20px;
+        text-transform: uppercase;
     }
 }
 

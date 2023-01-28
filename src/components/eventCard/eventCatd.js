@@ -5,25 +5,26 @@ import './eventCard.scss';
 
 function EventCard({showData}) {
     return(
-        <div className="event-card">
-            {showData.newEvent && <span className="newEvent">{showData.newEvents}</span>}
-            {showData.image && <div className='event-card__img'>
-                <Link to={`/team/${showData.slug}`} >
+        <Link to={`/team/${showData.slug}`} className="event-card">
+            {showData.image && 
+                <div className='event-card__img'>
+                    {showData.newEvent && <span className="newEvent">{showData.newEvents}</span>}
                     <img src={showData.image.url} alt={showData.image.description}/>  
-                </Link>
-            </div>}
+                </div>
+            }
             <div className="event-card__body">
-                {showData.title && <Link to={`/team/${showData.slug}`}  className="event-card__title">{showData.title}</Link>}
+                {showData.title && <h5 className="event-card__title">{showData.title}</h5>}
                 {showData.previewText && <div className="event-card__text">
                     <p>{showData.previewText}</p>
                 </div>}
                 {showData.slug&& 
                     <div className="btn-wrap">
-                        <Link to={`/team/${showData.slug}`} className='link'>{showData.textBtn}</Link>
+                        <span  className='link'>{showData.textBtn}</span>
                     </div>
                 }
             </div>
-        </div>  
+        </Link>
+       
     )
 }
 
