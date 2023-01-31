@@ -2,164 +2,106 @@ import * as React from "react"
 import {  graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import SectionMain from "../components/sectionMain/sectionMain"
-import SectionAbout from "../components/sectionAbout/sectionAbout"
-import SectionTeam from "../components/sectionTeam/sectionTeam"
+import SectionMain from'../components/sectionMain/sectionMain'
+import SectionAbout from '../components/sectionAbout/sectionAbout'
+import SectionTeam from '../components/sectionTeam/sectionTeam'
 import SectionEvents from '../components/sectionEvents/sectionEvents'
+
+import * as sorts from '../components/sorts/sorts'
+
 
 
 const IndexPage =({data}) => {
-const dataMainSeaction = [...data.allContentfulMainSlide.nodes]
-const dataSectionAbout = {...data.allContentfulSectionAboutUs.nodes[0]}
-const dataSectionTeam  = [...data.allContentfulPersonCard.nodes]
-
-  return (
-    <Layout>
-      <SectionMain  data={dataMainSeaction}/>
-      <SectionAbout data={dataSectionAbout}/>
-      <SectionTeam data = {dataSectionTeam} textDes={data.teamDesBclok}/>
-      <SectionEvents data = {[...data.oldEvents.nodes]} textDes={data.textOldEvents} key={data.oldEvents.nodes.id}/>
-      <SectionEvents data = {[...data.newEvents.nodes]} textDes={data.textNewEvents} key={data.oldEvents.nodes.id}/>
-    </Layout>
+  const pageData = {...data.allContentfulPage.nodes[0].sectionContents}
+    return (
+      <Layout>
+      <SectionMain  data={ sorts.getsortedData(pageData, 'mainSection')}/>
+      <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
+      <SectionTeam  data={ sorts.getsortedData(pageData, "ourTeam")}/>
+      <SectionEvents data={ sorts.getsortedData(pageData, "oldEvents")} eventCard='CardOldEvents'/>
+       <SectionEvents data={ sorts.getsortedData(pageData, "newEvents")} eventCard='CardNewEvent'/>
+      </Layout>
   )
 }
 
 
 export const Head = () => <Seo title="Home" />
-
 export default IndexPage
-
 
 export const query = graphql`
 {
-  allContentfulMainSlide(filter: {nameBlock: {eq: "MainSectionSlide"}}) {
-    totalCount
+  allContentfulPage(filter: {nameSection: {eq: "Home Page"}}) {
     nodes {
-      bgColor
-      colorText
-      contentful_id
-      layerOnImage
-      nameBlock
-      subtitle
-      slideBgImage {
-        url
-        description
-      }
-      slideDescription {
-        raw
-      }
-      title
-    }
-  }
-
-
-  allContentfulSectionAboutUs(filter: {nameBlock: {eq: "SectionAboutUS"}}) {
-    nodes {
-      button
-      buttonText
-      id
-      sectionColor
-      textColor
-      title
-      description {
-        raw
-      }
-    }
-  }
-
-  allContentfulPersonCard(filter: {nameBlock: {eq: "person"}}) {
-    nodes {
-      bgColorAnimation
-      bgColorCard
-      colorText
-      namePersone
-      personImage {
-        description
-        url
-      }
-      slug
-      position
-      id
-    }
-  }
-
-  newEvents: allContentfulCardEvent(filter: {nameBlock: {eq: "CardNewEvent"}}) {
-    nodes {
-      descriptionEvent {
-        raw
-      }
-      nameBlock
-      newEvent
-      newEventsText
-      slug
-      title
-      nameEvent
-      date
-      textBtn
-      previewText
-      id
-      image {
-        url
-        description
-      }
-    }
-  }
-  oldEvents: allContentfulCardEvent(filter: {nameBlock: {eq: "CardOldEvents"}}){
-    nodes {
-      descriptionEvent {
-        raw
-      }
-      nameBlock
-      newEvent
-      newEventsText
-      slug
-      title
-      nameEvent
-      date
-      textBtn
-      id
-      previewText
-      image {
-        url
-        description
-      }
-    }
-  }
-
-  teamDesBclok: allContentfulDescriptionBlock(filter: {nameBlock: {eq: "teamDesBclok"}, textDescription: {}}) 
-      {
-        nodes {
-          title
-          textDescription {
-            raw
+      sectionContents {
+        nameBlock
+        sectionBlocks {
+          ... on ContentfulBlockDescription {
+            id
+            title
+            textColor
+            sectionColor
+            button
+            buttonText
+            description {
+              raw
+            }
+            nameBlock
           }
-          nameBlock
-          id
-        }
-      }
-
-    textOldEvents: allContentfulDescriptionBlock(filter: {nameBlock: {eq: "textOldEvents"}, textDescription: {}})
-     {
-        nodes {
-          title
-          textDescription {
-            raw
+          ... on ContentfulCardEvent {
+            id
+            address {
+              raw
+            }
+            image {
+              url
+              description
+            }
+            nameBlock
+            nameEvent
+            newEvent
+            linkEvent
+            newEventsText
+            slug
+            textBtn
+            title
           }
-          nameBlock
-          id
-        }
-      }
-    textNewEvents: allContentfulDescriptionBlock(filter: {nameBlock: {eq: "textNewEvents"}, textDescription: {}})
-        {
-        nodes {
-          title
-          textDescription {
-            raw
+          ... on ContentfulMainSlide {
+            id
+            bgColor
+            colorText
+            layerOnImage
+            nameBlock
+            slideBgImage {
+              url
+              description
+            }
+            slideDescription {
+              raw
+            }
+            subtitle
+            title
           }
-          nameBlock
-          id
+          ... on ContentfulPersonCard {
+            id
+            bgColorAnimation
+            bgColorCard
+            colorText
+            nameBlock
+            namePersone
+            personDescription {
+              raw
+            }
+            personImage {
+              url
+              description
+            }
+            position
+            slug
+          }
         }
+      
       }
-    
-    
-}`
+    }
+  }
+}
+`

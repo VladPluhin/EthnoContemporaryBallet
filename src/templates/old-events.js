@@ -34,7 +34,7 @@ export default ({data}) => {
                           {prevPage.slug &&  <Link to={ `/old-events/${prevPage.slug}`}  className="link prev ">{prevPage.nameEvent}</Link>}
                         </li>
                         <li>
-                          {nextPage.slug && <Link to={ `/old-events${nextPage.slug}`}  className="link  next">{nextPage.nameEvent}</Link>}
+                          {nextPage.slug && <Link to={ `/old-events/${nextPage.slug}`}  className="link  next">{nextPage.nameEvent}</Link>}
                         </li>
                       </ul>
                </div>

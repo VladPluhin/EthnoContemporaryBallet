@@ -4,13 +4,14 @@ import { Link} from "gatsby"
 import RichText from '../richText/richText'
 
 function SectionAbout ({data})  {
+  const sectionData = {...data[0]};
   return (
-    <section className='section-about'  style={{backgroundColor: data.sectionColor? data.sectionColor : '' }}>
+    <section className='section-about'  style={{backgroundColor: sectionData.sectionColor? sectionData.sectionColor : '' }}>
         <div className="container"> 
-          {data.title &&  <h2 className="title" style={{color: data.textColor ? data.textColor : '#0000' }}>{data.title}</h2> }
-          {data.description &&  <RichText data={data.description} colorText={ data.textColor}/>}
-          {data.buttonText && <div className="btn-wrap">
-               <Link to="/team" className="link" style={{color: data.textColor ? data.textColor: '#0000' }}>{data.buttonText}</Link>
+          {sectionData.title &&  <h2 className="title" style={{color: sectionData.textColor ? sectionData.textColor : '#0000' }}>{sectionData.title}</h2> }
+          {sectionData?.description &&  <RichText data={sectionData?.description} colorText={ sectionData.textColor}/>}
+          {sectionData.buttonText && <div className="btn-wrap">
+               <Link to="/team" className="link" style={{color: sectionData.textColor ? sectionData.textColor: '#0000' }}>{sectionData.buttonText}</Link>
             </div>}
         </div>
     </section>

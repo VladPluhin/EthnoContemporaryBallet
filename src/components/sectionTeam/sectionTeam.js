@@ -3,25 +3,29 @@ import * as React from "react"
 import './sectionTeam.scss';
 import PersonCard from "../personCard/personCard";
 import RichText from '../richText/richText'
+import * as sorts from '../sorts/sorts'
 
+function SectionTeam ( {data})  {
 
-function SectionTeam ( {data, textDes})  {
-  const descriptionData= {...textDes.nodes[0]}
-   return (
+  const descriptionData =  sorts.getsortedCards(data, "blockDescription")
+  const personData= sorts.getsortedCards(data, "person")
+  
+  
+  return (
     <section className="section-team" >
         <div className='container'>
-         {descriptionData.title && <h2 className="title">{descriptionData.title}</h2>} 
-         {descriptionData.textDescription && <RichText data={descriptionData.textDescription}/>} 
+        {descriptionData[0].title && <h2 className="title">{descriptionData[0].title}</h2>} 
+         {descriptionData[0].description && <RichText data={descriptionData[0].description}/>}
           <div className="row team-row">
-            {data.map((personData)=> {
+            {personData.map((person)=> {
                   return ( 
-                    <div className="col" key={personData.id}>
-                       <PersonCard personData= {personData}/>
+                    <div className="col" key={person.id}>
+                       <PersonCard personData= {person}/>
                   </div>
                   )
               })}
           </div>
-        </div>
+        </div> 
     </section>
    )
 }
