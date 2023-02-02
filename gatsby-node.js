@@ -41,6 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
   const artists = result.data.allContentfulPersonCard.nodes
   const eventsOld = result.data.oldEvents.nodes;
   const eventsNew = result.data.newEvents.nodes;
+  
   if (artists.length > 0) {
     artists.forEach((artist, index) => {
       const previousArtistSlug = index === 0 ? null : artists[index - 1].slug
@@ -56,6 +57,7 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
       })
     })
   }
+  
   if (eventsOld.length > 0) {
     eventsOld.forEach((eventData, index) => {
       const previousEventSlug = index === 0 ? null : eventsOld[index - 1].slug
@@ -71,10 +73,11 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
       })
     })
   }
+
   if (eventsNew.length > 0) {
     eventsNew.forEach((eventData, index) => {
-      const previousEventSlug = index === 0 ? null : eventsOld[index - 1].slug
-      const nextEventSlug = index === eventsOld.length - 1 ? null : eventsOld[index + 1].slug
+      const previousEventSlug = index === 0 ? null : eventsNew[index - 1].slug
+      const nextEventSlug = index === eventsNew.length - 1 ? null : eventsNew[index + 1].slug
       createPage({
         path: `/new-events/${eventData.slug}`,
         component: newEventPage,

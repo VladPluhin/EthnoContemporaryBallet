@@ -8,7 +8,6 @@ export default ({data}) => {
   const nextPage= {...data.next.nodes[0]}
   const prevPage= {...data.previous.nodes[0]}
   const eventData= {...data.allContentfulCardEvent.nodes[0]}
-  
      return (
        <Layout>
          <section className="section-content">
@@ -71,13 +70,13 @@ query MyQuery(
           }
         }
       }
-      previous: allContentfulCardEvent(filter: {slug: { eq: $previousPostSlug }}) {
+      previous: allContentfulCardEvent(filter: { slug: {eq: $previousPostSlug}}){
         nodes {
           slug
           nameEvent
         }
       }
-      next: allContentfulCardEvent(filter: {slug: { eq: $nextPostSlug }}) {
+      next: allContentfulCardEvent(filter: {slug: {eq:  $nextPostSlug}}){
         nodes {
           slug
           nameEvent

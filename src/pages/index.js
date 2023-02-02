@@ -9,17 +9,15 @@ import SectionEvents from '../components/sectionEvents/sectionEvents'
 
 import * as sorts from '../components/sorts/sorts'
 
-
-
 const IndexPage =({data}) => {
   const pageData = {...data.allContentfulPage.nodes[0].sectionContents}
     return (
       <Layout>
-      <SectionMain  data={ sorts.getsortedData(pageData, 'mainSection')}/>
-      <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
-      <SectionTeam  data={ sorts.getsortedData(pageData, "ourTeam")}/>
-      <SectionEvents data={ sorts.getsortedData(pageData, "oldEvents")} eventCard='CardOldEvents'/>
-       <SectionEvents data={ sorts.getsortedData(pageData, "newEvents")} eventCard='CardNewEvent'/>
+        <SectionMain  data={ sorts.getsortedData(pageData, 'mainSection')}/>
+        <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
+        <SectionTeam  data={ sorts.getsortedData(pageData, "Team")}/>
+        <SectionEvents data={ sorts.getsortedData(pageData, "oldEvents")} eventCard='CardOldEvents'/>
+        <SectionEvents data={ sorts.getsortedData(pageData, "newEvents")} eventCard='CardNewEvent'/>
       </Layout>
   )
 }
