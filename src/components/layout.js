@@ -13,8 +13,8 @@ const Layout = ({ children }) => {
          <Scrollbars style={{ width: '100%', height: '100vh' }}
            renderTrackVertical={props => <div {...props} className="track-vertical"/>}>
             <main>{children}</main>
+            <Footer/>           
             </Scrollbars>
-        <Footer/>
       </div>
   )
 }

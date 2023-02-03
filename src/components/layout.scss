@@ -21,7 +21,8 @@ body {
   font-family: $font-base;
   font-weight: normal;
   margin: 0;
-  // overflow: hidden;
+  overflow: hidden;
+  position: relative;
 }
 
 a {
