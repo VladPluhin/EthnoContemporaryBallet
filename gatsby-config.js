@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
 }
 module.exports = {
+  flags: {
+    PARALLEL_QUERY_RUNNING: true
+  },
   siteMetadata: {
     title: `EthnoContemporaryBallet`,
     description: `EthnoContemporaryBallet`,
