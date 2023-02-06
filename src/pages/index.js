@@ -27,7 +27,7 @@ export const Head = () => <Seo title="Home" />
 export default IndexPage
 
 export const query = graphql`
-query allContentfulPage {
+{
   allContentfulPage(filter: {nameSection: {eq: "Home Page"}}) {
     nodes {
       sectionContents {
