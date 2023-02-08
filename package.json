@@ -1,50 +1,30 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ethno-contemporary-ballet",
+  "version": "1.0.0",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "vlad.plugin@gmail.com",
-  "dependencies": {
-    "@contentful/rich-text-types": "^16.0.2",
-    "dotenv": "^16.0.3",
-    "gatsby": "^5.4.0",
-    "gatsby-plugin-image": "^3.4.0",
-    "gatsby-plugin-manifest": "^5.4.0",
-    "gatsby-plugin-sass": "^6.5.0",
-    "gatsby-plugin-scroll-indicator": "^1.0.1",
-    "gatsby-plugin-sharp": "^5.4.0",
-    "gatsby-plugin-slug": "^2.0.0",
-    "gatsby-plugin-smoothscroll": "^1.2.0",
-    "gatsby-source-contentful": "^8.4.0",
-    "gatsby-source-filesystem": "^5.4.0",
-    "gatsby-transformer-sharp": "^5.4.0",
-    "react": "^18.2.0",
-    "react-custom-scrollbars-2": "^4.5.0",
-    "react-dom": "^18.2.0",
-    "sass": "^1.57.1",
-    "swiper": "^8.4.6"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.1"
-  },
+  "description": "ethno-contemporary-ballet",
+  "author": "VladislavPluhin",
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
   "scripts": {
-    "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
+    "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "clean": "gatsby clean"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/VladPluhin/EthnoContemporaryBallet"
-  },
-  "bugs": {
-    "url": "https://github.com/VladPluhin/EthnoContemporaryBallet"
+  "dependencies": {
+    "gatsby": "^5.5.0",
+    "gatsby-plugin-image": "^3.6.0",
+    "gatsby-plugin-sass": "^6.6.0",
+    "gatsby-plugin-sharp": "^5.6.0",
+    "gatsby-source-contentful": "^8.6.0",
+    "gatsby-transformer-sharp": "^5.6.0",
+    "react": "^18.2.0",
+    "react-custom-scrollbars-2": "^4.5.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.58.0",
+    "swiper": "^9.0.3"
   }
 }

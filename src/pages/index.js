@@ -3,22 +3,22 @@ import {  graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import SectionMain from'../components/sectionMain/sectionMain'
-import SectionAbout from '../components/sectionAbout/sectionAbout'
 import SectionTeam from '../components/sectionTeam/sectionTeam'
 import SectionEvents from '../components/sectionEvents/sectionEvents'
-
+import SectionAbout from '../components/sectionAbout/sectionAbout'
 import * as sorts from '../components/sorts/sorts'
 
 const IndexPage =({data}) => {
   const pageData = {...data.allContentfulPage.nodes[0].sectionContents}
+  console.log(pageData)
     return (
       <Layout>
-        <SectionMain  data={ sorts.getsortedData(pageData, 'mainSection')}/>
-        <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
-        <SectionTeam  data={ sorts.getsortedData(pageData, "Team")}/>
-        <SectionEvents data={ sorts.getsortedData(pageData, "oldEvents")} eventCard='CardOldEvents'/>
-        <SectionEvents data={ sorts.getsortedData(pageData, "newEvents")} eventCard='CardNewEvent'/>
-      </Layout>
+      <SectionMain  data={ sorts.getsortedData(pageData, 'mainSection')}/>
+      <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
+      <SectionTeam  data={ sorts.getsortedData(pageData, "Team")}/>
+      <SectionEvents data={ sorts.getsortedData(pageData, "oldEvents")} eventCard='CardOldEvents'/>
+      <SectionEvents data={ sorts.getsortedData(pageData, "newEvents")} eventCard='CardNewEvent'/>
+    </Layout>
   )
 }
 

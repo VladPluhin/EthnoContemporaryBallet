@@ -26,7 +26,6 @@ function Seo({ description, title, children }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const fonts = site.siteMetadata.fontsGoogle
   return (
     <>
       <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>

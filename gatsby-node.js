@@ -1,6 +1,5 @@
 const path = require('path')
 
-
 exports.createPages = async ({ graphql, actions, reporter  }) => {
   const { createPage } = actions
   const artistsPage = path.resolve('./src/templates/artist.js')
@@ -44,11 +43,12 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
   
   if (artists.length > 0) {
     artists.forEach((artist, index) => {
-      const previousArtistSlug = index === 0 ? null : artists[index - 1].slug
-      const nextArtistSlug = index === artists.length - 1 ? null : artists[index + 1].slug
+      const previousArtistSlug = index === 0 ? '0' : artists[index - 1].slug
+      const nextArtistSlug = index === artists.length - 1 ? '0' : artists[index + 1].slug
       createPage({
         path: `/team/${artist.slug}`,
         component: artistsPage,
+        defer: false,
         context: {
           slug: artist.slug,
           previousArtistSlug: previousArtistSlug,
@@ -60,11 +60,12 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
   
   if (eventsOld.length > 0) {
     eventsOld.forEach((eventData, index) => {
-      const previousEventSlug = index === 0 ? null : eventsOld[index - 1].slug
-      const nextEventSlug = index === eventsOld.length - 1 ? null : eventsOld[index + 1].slug
+      const previousEventSlug = index === 0 ? '0' : eventsOld[index - 1].slug
+      const nextEventSlug = index === eventsOld.length - 1 ? '0' : eventsOld[index + 1].slug
       createPage({
         path: `/old-events/${eventData.slug}`,
         component: oldEventPage,
+        defer: false,
         context: {
           slug: eventData.slug,
           previousPostSlug: previousEventSlug,
@@ -76,11 +77,12 @@ exports.createPages = async ({ graphql, actions, reporter  }) => {
 
   if (eventsNew.length > 0) {
     eventsNew.forEach((eventData, index) => {
-      const previousEventSlug = index === 0 ? null : eventsNew[index - 1].slug
-      const nextEventSlug = index === eventsNew.length - 1 ? null : eventsNew[index + 1].slug
+      const previousEventSlug = index === 0 ? '0' : eventsNew[index - 1].slug
+      const nextEventSlug = index === eventsNew.length - 1 ? '0' : eventsNew[index + 1].slug
       createPage({
         path: `/new-events/${eventData.slug}`,
         component: newEventPage,
+        defer: false,
         context: {
           slug: eventData.slug,
           previousPostSlug: previousEventSlug,
