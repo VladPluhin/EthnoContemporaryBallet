@@ -53,9 +53,22 @@ const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
         }
     });
   }
+  function headerOnScroll (){
+    var className = "scrolled";
+    var scrollTrigger = 1;
+
+    window.onscroll = function() {
+        if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+            document.querySelector(".header")?.classList.add(className);
+        } else {
+            document.querySelector(".header")?.classList.remove(className);
+        }
+    };
+}
 
   useEffect(() => {
     menuInit()
+    headerOnScroll ()
   }, [])
    return (
       <header className="header">
