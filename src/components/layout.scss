@@ -20,7 +20,6 @@ body {
   font-family: $font-base;
   font-weight: normal;
   margin: 0;
-  overflow: hidden;
   position: relative;
 }
 
@@ -33,13 +32,13 @@ a {
 .link {
   text-decoration: none;
   color: inherit;
-  padding-right: 15px;
+  padding-right: 25px;
   padding-bottom: 4px;
   font-weight: 500;
   position: relative;
   color: #202f4b;
   &:after {
-    content: '>';
+    content: '\2794';
     position: absolute;
     top: 0;
     right: 0;
@@ -47,26 +46,9 @@ a {
     transform: translateX(0);
     transition: all .3s ease;
   }
-  &:before {
-    content: '';
-    position: absolute;
-    top:  100%;
-    right: 0;
-    background-color: #202f4b;
-    width: 100%;
-    height: 2px;
-    transform: scaleX(0);
-    opacity: 0;
-    visibility: hidden;
-    transform-origin: left;
-    transition: all .3s ease;
-  }
+ 
   &:hover {
-    &:before{
-      transform: scaleX(1);
-      opacity: 1;
-      visibility: visible;
-    }
+    
     &:after{
       transform: translateX(4px);
     }
@@ -76,7 +58,7 @@ a {
 
 
 .container {
-  max-width: 1760px;
+  max-width: 1680px;
   padding:  0 15px;
   margin: 0 auto;
 }

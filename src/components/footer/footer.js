@@ -53,7 +53,7 @@ const Footer =  ({}) => {
                      <img src={headerLogo.url} alt={headerLogo.description}/> 
                </Link>
              </div>
-             <Navigation navData= {navData}/>
+             {/* <Navigation navData= {navData}/> */}
           </nav>
          </div>
       </footer>

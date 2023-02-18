@@ -1,4 +1,4 @@
-import * as React from "react"
+import  React , {useEffect} from "react"
 import { Link}  from "gatsby"
 import  './header.scss';
 
@@ -15,23 +15,47 @@ const Navigation = ({navData}) => {
   //       })}
   //   </ul>
   // }
+
+  function subMenuInit() {
+  
+    const submenuOpeners = Array.from( document.querySelectorAll('.link-with-submenu'));
+    const closeBtn = Array.from(document.querySelectorAll('.close-btn'));
+    
+    submenuOpeners.map((item) => {
+        item.addEventListener("click", (event) => {
+            event.preventDefault()
+            item.classList.toggle('active')
+            closeBtn.map((closeBTn)=> {
+                    closeBTn.addEventListener("click", (event) => {
+                    event.preventDefault()
+                    item.classList.remove('active')
+                })
+            })
+        })
+    })
+}
+useEffect(() => {
+  subMenuInit()
+}, [])
    return (
-      <div className="header__nav">
         <ul className="header__list">
             { navData.map((element)=> {
               if(element.sectionBlocks[0].slug) {
                 return (   
-                    <li key={element.id} className="header__list-item">
-                        <span>{element.textNavigationLink}</span>
-                        <ul>
+                    <li key={element.id} className="header__list-item  nav-with-submenu">
+                        <span className="link-with-submenu">{element.textNavigationLink}</span>
+                        <div className="submenu">
+                          <a href="" className="close-btn">back to</a>
                           {[...element.sectionBlocks].map((item)=>{
+                             if (item.namePersone != undefined || item.nameEvent!=undefined) {
                               return(
-                                <li key={item.id} className='header__list-item' >
+                                <div key={item.id}  >
                                       <Link to={element.textUrl + item.slug}>{item.nameEvent ? item.nameEvent : item.namePersone}</Link>
-                                </li>
+                                </div>
                               )
+                             }
                             })}
-                        </ul>
+                        </div>
                     </li>
                 )
               }
@@ -44,7 +68,6 @@ const Navigation = ({navData}) => {
               }
             })}
         </ul>
-    </div>
    )
 }
 

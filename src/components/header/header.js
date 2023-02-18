@@ -1,4 +1,4 @@
-import * as React from "react"
+import  React, {useEffect} from "react"
 import { useStaticQuery, graphql , Link}  from "gatsby"
 import  './header.scss';
 import Navigation from './navigation'
@@ -42,6 +42,21 @@ const Header = ({}) => {
 `)
 const navData = [...data.allContentfulSection.nodes]
 const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
+
+  function menuInit (){
+    document.querySelector('.hamburger-btn')?.addEventListener('click', function () {
+        document.body.classList.toggle('menu-open');
+        document.body.classList.remove("panel-menu-open");
+        if(document.body.classList.contains("search-popup-opened")) {
+            document.body.classList.remove("search-popup-opened")
+            document.querySelector('.fnc-search-popup-container').classList.remove('search-popup-active')
+        }
+    });
+  }
+
+  useEffect(() => {
+    menuInit()
+  }, [])
    return (
       <header className="header">
         <div className="container">
@@ -51,8 +66,12 @@ const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
                     <img src={headerLogo.url} alt={headerLogo.description}/> 
               </Link>
             </div>
+            <span className="hamburger-btn">
+                <span></span>
+            </span>
             <Navigation navData= {navData}/>
          </nav>
+       
         </div>
      </header>
    )
