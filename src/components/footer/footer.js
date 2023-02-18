@@ -49,11 +49,9 @@ const Footer =  ({}) => {
          <div className="container">
          <nav className="footer__navigation">
             <div className="footer__logo">
-
                <Link to="/">
                      <img src={headerLogo.url} alt={headerLogo.description}/> 
                </Link>
-               
              </div>
              <Navigation navData= {navData}/>
           </nav>
