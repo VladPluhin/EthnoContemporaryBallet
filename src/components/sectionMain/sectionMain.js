@@ -17,9 +17,6 @@ function SectionMain ({data})  {
         modules={[Autoplay, Pagination]}
         slidesPerView={1}
         loop='true'
-        autoplay={{
-          delay: 5000,
-        }}
         pagination={{
           clickable: true
         }}

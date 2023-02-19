@@ -3,9 +3,13 @@
     font-size: 20px;
     padding: 75px 0;
     .title {
-        font-size: 50px;
+        font-size: 30px;
         margin-bottom: 25px;
         font-weight: 600;
+
+        @media (min-width: 1023px) {
+            font-size: 50px;
+        }
     }
 
     .container {

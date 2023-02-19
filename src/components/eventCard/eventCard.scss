@@ -71,8 +71,11 @@
     }
 
     &__title {
-        font-size: 28px;
+        font-size: 20px;
         text-transform: capitalize;
+        @media (min-width: 1200px) {
+            font-size: 28px;
+        }
     }
     &__body {
         margin-top: -15px;
@@ -82,12 +85,18 @@
     }
 
     &__text {
-        font-size: 20px;
+       
+        @media (min-width: 1200px) {
+            font-size: 20px;
+        }
     }
 
     .link {
-        font-size: 20px;
         text-transform: uppercase;
+
+        @media (min-width: 1200px) {
+            font-size: 20px;
+        }
     }
 }
 
