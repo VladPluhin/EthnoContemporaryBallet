@@ -19,34 +19,58 @@
    
     &__navigation {
         padding: 25px 0;
-        display: flex;
-        flex-wrap: wrap;
+
         @media (min-width: 768px) { 
             padding: 45px 0;
-            justify-content: space-between;
-
+            display: flex;
+            justify-content:space-around;
             align-items: flex-start;
         }
     }
     
     &__nav {
         margin-left: auto;
+        @media (min-width: 768px) { 
+            max-width: calc(100% - 150px);
+            width: 100%;
+            display: flex;
+            justify-content:space-around;
+            align-items: flex-start;
+        }
     }
     &__title {
+        transition: color .3 ease;
+        text-transform: capitalize;
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #fff;
+        text-decoration: none;
+        display: block;
+
         &.active + .footer__list {
-                max-height: 1000px;
-            }
+            max-height: 1000px;
+            padding: 0 0 15px ;
+        }
+        &.active {
+            color: #2cabcd;
+        }
     }
     &__list {
         width: 100%;
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 0 ;
         max-height: 0;
         overflow: hidden;
         transition: max-height .3s ease;
         @media (min-width: 768px) { 
             max-height: 100%;
+        }
+        li {
+            padding-bottom: 15px;
+            &:last-child {
+                padding-bottom: 0;
+            }
         }
        
     }
@@ -54,26 +78,36 @@
     &__list-item {
         font-weight: 400;
         position: relative;
-      
+        padding: 0 15px;
         @media (min-width: 768px) { 
             margin-right: 35px;
+            padding: 0 ;
         }
         &:last-child {
             margin-right: 0;
         }
 
-        > * {
-            color: #fff;
-            text-transform: capitalize;
-            font-size: 20px;
-            text-decoration: none;
-        }
+       
         a {
+            transition: border-color .3s ease;
             color: #fff;
             text-transform: capitalize;
+            text-decoration: none;
+            border-bottom: 1px solid #fff;
+            &:hover {
+                border-color: transparent;
+            }
         }
 
      
     }
 }
 
+a.footer__title {
+   
+    &:hover{
+        &:after {
+            transform: translateX(9px);
+        }
+    }
+}

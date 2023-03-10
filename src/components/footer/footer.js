@@ -43,22 +43,15 @@ const Footer =  ({}) => {
  const navData = [...data.allContentfulSection.nodes]
  const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
  const submenuOpeners = Array.from( document.querySelectorAll('.footer__title'));
- submenuOpeners.map((item) => {
-  item.addEventListener("click", (e)=> {
-    getActiveItem(e)
-  })
-})
-const getActiveItem = (e)=> {
-  submenuOpeners.map((opener) => {
-    if(opener.classList.contains('active')) {
-      opener.classList.remove('active')
-    }else{
-      e.target.classList.toggle('active')
-    }
-  })
-  
 
-}
+  submenuOpeners.map((item) => {
+    item.addEventListener("click", (e)=> {
+     if(item.classList.contains("active")) {
+      item.classList.remove('active')
+     }
+     item.classList.remove('active')
+    })
+  })
   return (
        <footer className="footer">
          <div className="container">
@@ -68,6 +61,7 @@ const getActiveItem = (e)=> {
                      <img src={headerLogo.url} alt={headerLogo.description}/> 
                </Link>
              </div>
+             <div className="footer__nav">
               { navData.map((element)=> {
                 if(element.sectionBlocks[0].slug) {
                   return (   
@@ -88,11 +82,12 @@ const getActiveItem = (e)=> {
                 else {
                   return (   
                     <div key={'footer_'  + element.id} className="footer__list-item">
-                        <Link to={element.textUrl}>{element.textNavigationLink}</Link>
+                        <Link to={element.textUrl}  className="footer__title">{element.textNavigationLink}</Link>
                     </div>
                   )
                 }
               })}
+            </div>
           </nav>
          </div>
       </footer>
