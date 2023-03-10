@@ -5,6 +5,7 @@
     
     &__logo {
         max-width: 115px;
+        width: 100%;
        
         >* {
             width: 100%;
@@ -17,30 +18,46 @@
     }
    
     &__navigation {
-        justify-content: space-between;
+        padding: 25px 0;
         display: flex;
-        align-items: center;
-        padding-right: 150px;
+        flex-wrap: wrap;
+        @media (min-width: 768px) { 
+            padding: 45px 0;
+            justify-content: space-between;
+
+            align-items: flex-start;
+        }
     }
     
     &__nav {
         margin-left: auto;
     }
-   
+    &__title {
+        &.active + .footer__list {
+                max-height: 1000px;
+            }
+    }
     &__list {
         width: 100%;
-        display: flex;
         list-style: none;
         margin: 0;
         padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease;
+        @media (min-width: 768px) { 
+            max-height: 100%;
+        }
        
     }
 
     &__list-item {
-        margin-right: 35px;
         font-weight: 400;
         position: relative;
-        padding: 48px 0;
+      
+        @media (min-width: 768px) { 
+            margin-right: 35px;
+        }
         &:last-child {
             margin-right: 0;
         }
@@ -56,16 +73,7 @@
             text-transform: capitalize;
         }
 
-       > ul {
-            padding:25px 0  0 ;
-            margin: 0;
-            list-style: none;
-            min-width: 170px;
-          
-            li {
-                padding: 0 0 10px;
-            }
-        }
+     
     }
 }
 

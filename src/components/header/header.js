@@ -82,7 +82,7 @@ const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
             <span className="hamburger-btn">
                 <span></span>
             </span>
-            <Navigation navData= {navData}/>
+            <Navigation navData= {navData} id={'header'}/>
          </nav>
        
         </div>

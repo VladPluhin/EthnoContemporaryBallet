@@ -4,18 +4,6 @@ import  './header.scss';
 
 const Navigation = ({navData}) => {
 
-  // const Sublist= ({subData})=> {
-  //   <ul className="header__sublist" >
-  //      {subData.map((item)=>{
-  //         return(
-  //           <div key={item.id} className='li' >
-  //                 <Link to={item.slug}>{item.nameBlock ? item.nameBlock : item.namePersone}</Link>
-  //           </div>
-  //         )
-  //       })}
-  //   </ul>
-  // }
-
   function subMenuInit() {
   
     const submenuOpeners = Array.from( document.querySelectorAll('.link-with-submenu'));

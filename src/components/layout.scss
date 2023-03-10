@@ -278,6 +278,12 @@ section {
   @media (min-width: 1023px) {
     padding: 80px 0;
   }
+  &.section-indent {
+   padding-top: 65px;
+    @media (min-width: 768px) { 
+      padding-top: 250px;
+     }
+   }
 }
 
 .col {
@@ -362,4 +368,23 @@ section {
     background-color: #202f4b;
     box-shadow: 0 0 15px #3a61aa;
   }
+}
+body::-webkit-scrollbar {
+  width: 10px;
+  box-shadow: 1px 1px 10px #202f4b;              
+}
+
+body::-webkit-scrollbar-track {
+  background: #202f4b;      
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color:  rgb(5, 75, 115); 
+  border-radius: 10px; 
+  width: 10px;     
+  border: 1px solid #bfb4b4;  
+}
+
+.description {
+  margin-bottom: 40px;
 }

@@ -9,11 +9,10 @@ const IndexPage =({data}) => {
   const pageData = {...data.allContentfulPage.nodes[0].sectionContents}
     return (
       <Layout>
-      <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")}/>
-    </Layout>
+          <SectionAbout data={ sorts.getsortedData(pageData, "sectionAbout")} indent={true}/>
+      </Layout>
   )
 }
-
 
 export const Head = () => <Seo title="Home" />
 export default IndexPage

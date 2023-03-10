@@ -14,8 +14,10 @@ function SectionTeam ( {data})  {
   return (
     <section className="section-team" >
         <div className='container'>
-        {descriptionData[0].title && <h2 className="title">{descriptionData[0].title}</h2>} 
-         {descriptionData[0].description && <RichText data={descriptionData[0].description}/>}
+        <div className="description">
+            {descriptionData[0].title && <h2 className="title">{descriptionData[0].title}</h2>} 
+            {descriptionData[0].description && <RichText data={descriptionData[0].description} />}
+         </div>
           <div className="row team-row">
             {personData.map((person)=> {
                   return ( 
