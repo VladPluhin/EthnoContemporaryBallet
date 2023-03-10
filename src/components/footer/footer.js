@@ -42,9 +42,10 @@ const Footer =  ({}) => {
  `)
  const navData = [...data.allContentfulSection.nodes]
  const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
- const submenuOpeners = Array.from( document.querySelectorAll('.footer__title'));
+
  
  useEffect(() => {
+  const submenuOpeners = Array.from( document.querySelectorAll('.footer__title'));
   submenuOpeners.map((item) => {
     item.addEventListener("click", (e)=> {
      if(item.classList.contains("active")) {
