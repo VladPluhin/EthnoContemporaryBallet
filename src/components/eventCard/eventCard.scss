@@ -19,11 +19,10 @@
     
     &:hover {
         box-shadow: 0px 0px 15px #382e2e94;
-       
+        .newEvent {
+            box-shadow: 3px 3px 27px #61b8eb;
+        }
         .link {
-            font-size: 20px;
-            text-transform: uppercase;
-            
             &:before {
                 transform: scaleX(1);
                 opacity: 1;
@@ -34,6 +33,9 @@
                 transform: translateX(4px); 
             }
         }
+        img {
+            transform: scale(1.07);
+        }
     }
    
     &__img {
@@ -43,16 +45,18 @@
         overflow: hidden;
         position: relative;
         width: 100%;
-
-        &:hover {
-            .newEvent {
-                box-shadow: 3px 3px 27px #61b8eb;
-            }
-        }
+       
+       
         img {
+            transition: transform .3s ease;
             width: 100%;
             object-fit: cover;
             object-position: 0 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
     }
 

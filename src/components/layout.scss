@@ -155,6 +155,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding-top: 30px;
+  margin-bottom: 0;
   .link {
     color: inherit;
     font-size: 20px;
@@ -296,7 +297,7 @@ section {
   padding: 150px 0 40px;
   background-color: rgba(11, 0, 104, 0.0509803922);
   @media (min-width: 1024px) {
-    padding: 150px 0 0;
+    padding: 150px 0 100px;
   }
  
   article {

@@ -1,4 +1,4 @@
-import * as React from "react"
+import  React, {useEffect} from "react"
 import { Link,  useStaticQuery, graphql } from "gatsby"
 import './footer.scss';
 
@@ -43,15 +43,20 @@ const Footer =  ({}) => {
  const navData = [...data.allContentfulSection.nodes]
  const headerLogo = {...data.contentfulHeader.headerLogo.logoImage}
  const submenuOpeners = Array.from( document.querySelectorAll('.footer__title'));
-
+ 
+ useEffect(() => {
   submenuOpeners.map((item) => {
     item.addEventListener("click", (e)=> {
      if(item.classList.contains("active")) {
       item.classList.remove('active')
+      return
+     } else {
+      item.classList.toggle('active')
      }
-     item.classList.remove('active')
     })
   })
+}, []);
+
   return (
        <footer className="footer">
          <div className="container">
